@@ -1,0 +1,42 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>random password generator</title>
+  </head>
+  <body>
+    <!-- 
+        thanks to Online Tutorials
+        https://www.youtube.com/watch?v=fOvYE1i_IiY
+     -->
+
+    <div class="inputBox">
+      <h2>random password generator</h2>
+      <input
+        type="text"
+        name=""
+        placeholder="cretae password"
+        id="password"
+        readonly=""
+      />
+      <div id="btn" onclick="getPassword()">generate password</div>
+    </div>
+
+    <script>
+      function getPassword() {
+        const newPassword = document.getElementById("password");
+        const chars =
+          "!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
+        let passwordLength = 8;
+        let password = "";
+
+        for (let i = 0; i < passwordLength; i++) {
+          let randomNumber = Math.floor(Math.random() * chars.length);
+          password += chars.substring(randomNumber, randomNumber + 1);
+        }
+        newPassword.value = password;
+      }
+    </script>
+  </body>
+</html>
