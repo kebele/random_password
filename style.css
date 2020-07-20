@@ -61,3 +61,33 @@ body {
     background: gray;
     transform : scale(0.9);
 }
+
+.copy {
+    position: absolute;
+    top : 100px;
+    right: 5px;
+    cursor: pointer;
+    opacity : 0.2;
+}
+
+.copy:hover {
+    opacity: 1;
+}
+
+.alertbox {
+    position: fixed;
+    top: 0;left: 0;
+    width: 100%;
+    height: 100vh;
+    background: salmon;
+    color: black;
+    text-align: center;
+    font-size: 4em;
+    display: none;
+}
+
+.alertbox.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
