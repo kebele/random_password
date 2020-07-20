@@ -20,10 +20,14 @@
         id="password"
         readonly=""
       />
+      <img src="copy.png" alt="" class="copy" onclick="copyPassword()">
+      <div class="alertbox"></div>
       <div id="btn" onclick="getPassword()">generate password</div>
     </div>
 
     <script>
+      let alertbox = document.querySelector('.alertbox')
+      
       function getPassword() {
         const newPassword = document.getElementById("password");
         const chars =
@@ -36,6 +40,18 @@
           password += chars.substring(randomNumber, randomNumber + 1);
         }
         newPassword.value = password;
+        alertbox.innerHTML = "new password copied : <br>" + password
+      }
+
+      function copyPassword(){
+        let copyPassText = document.getElementById('password');
+        copyPassText.select();
+        copyPassText.setSelectionRange(0,9999);
+        document.execCommand('copy');
+        alertbox.classList.toggle('active');
+        setTimeout(() => {
+          alertbox.classList.toggle('active');
+        }, 1500);
       }
     </script>
   </body>
